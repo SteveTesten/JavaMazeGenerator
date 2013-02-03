@@ -1,4 +1,4 @@
 MazeRace
 ========
 
-Maze Race Game
+Maze Race - A game for Android.
