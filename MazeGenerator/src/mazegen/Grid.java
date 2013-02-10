@@ -78,7 +78,7 @@ public class Grid
 		return neighbor_cells;
 	}
 	
-	public String toString()
+	public String toNumString()
 	{
 		String out = "";
 		
@@ -88,6 +88,28 @@ public class Grid
 				out+= (cells[row][col].toString() + " ");
 			out+="\n";
 		}
+		return out;
+	}
+
+	public String cellDisplay()
+	{
+		String out = "";
+		
+		for (int row=0; row<rows; row++)
+		{
+			for(int col=0; col<columns; col++)
+				out+= (cells[row][col].topToString());
+			out+="\n";
+			
+			for(int col=0; col<columns; col++)
+				out+= (cells[row][col].middleToString());
+			out+="\n";
+			
+			for(int col=0; col<columns; col++)
+				out+= (cells[row][col].bottomToString());
+			out+="\n";
+		}
+		
 		return out;
 	}
 	

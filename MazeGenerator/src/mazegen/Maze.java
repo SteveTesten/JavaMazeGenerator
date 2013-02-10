@@ -1,7 +1,6 @@
 package mazegen;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Stack;
 
@@ -16,7 +15,7 @@ public class Maze
 		this.total_columns = total_columns;
 		this.grid = new Grid(total_rows,total_columns);
 		
-		//grid.addBorder();
+		grid.addBorder();
 		
 		createMaze();
 		
@@ -24,7 +23,8 @@ public class Maze
 	
 	public void display()
 	{
-		System.out.println(grid.toString());
+		//System.out.println(grid.toString());
+		System.out.println(grid.cellDisplay());
 	}
 	
 	private void createMaze()
@@ -32,7 +32,7 @@ public class Maze
 		int visited_cells = 1;
 		int total_cells = total_rows * total_columns;
 		
-		Stack cell_stack = new Stack();
+		Stack<Cell> cell_stack = new Stack<Cell>();
 		Random random_gen = new Random();
 		
 		Cell current_cell = grid.getCell(random_gen.nextInt(total_rows), random_gen.nextInt(total_columns));
@@ -89,7 +89,7 @@ public class Maze
 		ArrayList<Cell> neighbor_cells = grid.neighbors(row,column);
 		ArrayList<Cell> closed_neighbors = new ArrayList<Cell>();
 		
-		for (int cell_index=0; cell_index<neighbor_cells.size(); cell_index++)
+		for (int cell_index=0; cell_index < neighbor_cells.size(); cell_index++)
 		{
 			if (neighbor_cells.get(cell_index).allClosed())
 				closed_neighbors.add(neighbor_cells.get(cell_index));
