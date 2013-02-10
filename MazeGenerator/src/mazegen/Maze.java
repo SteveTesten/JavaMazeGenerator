@@ -23,7 +23,6 @@ public class Maze
 	
 	public void display()
 	{
-		//System.out.println(grid.toString());
 		System.out.println(grid.cellDisplay());
 	}
 	
@@ -77,7 +76,7 @@ public class Maze
 			}
 			else
 			{
-				current_cell = (Cell)cell_stack.pop();
+				current_cell = cell_stack.pop();
 			}
 			
 		}

@@ -12,5 +12,9 @@ public class Main
 			Maze maze = new Maze(total_rows, total_columns);
 			maze.display();
 		}
+		else
+		{
+			System.out.println("Invalid matrix dimensions.  Please format args as 'rows columns' where 'rows' and 'columns' are integers.");
+		}
 	}
 }

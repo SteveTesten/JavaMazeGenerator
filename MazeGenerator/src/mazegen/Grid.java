@@ -85,7 +85,7 @@ public class Grid
 		for (int row=0; row<rows; row++)
 		{
 			for(int col=0; col<columns; col++)
-				out+= (cells[row][col].toString() + " ");
+				out+= (cells[row][col].toNumString() + " ");
 			out+="\n";
 		}
 		return out;
