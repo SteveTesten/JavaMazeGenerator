@@ -21,9 +21,19 @@ public class Maze
 		
 	}
 	
+	public int getRows()
+	{
+		return total_rows;
+	}
+	
+	public int getColumns()
+	{
+		return total_columns;
+	}
+	
 	public void display()
 	{
-		System.out.println(grid.cellDisplay());
+		//System.out.println(grid.cellDisplay());
 	}
 	
 	private void createMaze()
@@ -95,5 +105,11 @@ public class Maze
 		}
 		
 		return closed_neighbors;
+	}
+
+	public void solver()
+	{
+		// TODO Auto-generated method stub
+		
 	}
 }

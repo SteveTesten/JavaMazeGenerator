@@ -10,7 +10,10 @@ public class Main
 			int total_columns = Integer.parseInt(args[1]);
 			
 			Maze maze = new Maze(total_rows, total_columns);
-			maze.display();
+			MazeDisplay maze_window = new MazeDisplay(maze);
+			
+			//maze.solver();
+			//maze.display();
 		}
 		else
 		{
