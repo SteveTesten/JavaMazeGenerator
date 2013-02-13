@@ -1,10 +1,9 @@
 package mazegen;
 
-import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class MazeDisplay
+public class MazeDisplay extends JPanel
 {
 	
 	private int maze_rows, maze_cols;
@@ -17,8 +16,6 @@ public class MazeDisplay
 		maze_rows = maze.getRows();
 		maze_cols = maze.getColumns();
 		
-		maze_rows = 
-		
 		JFrame display_frame = new JFrame();
 		
 		display_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,20 +23,13 @@ public class MazeDisplay
 		display_frame.setSize(window_height,window_width);
 		display_frame.setLocationRelativeTo(null);
 		
-		JPanel maze_panel = new JPanel();
-		maze_panel.formatMazePanel(Maze maze);
+		//JPanel maze_panel = new JPanel();
 		
-		
-		display_frame.add(maze_panel, BorderLayout.CENTER);
+		//display_frame.add(maze_panel);
 		
 		display_frame.setVisible(true);
 		
 		
-		
-	}
-
-	private void initializeFrame()
-	{
 		
 	}
 
