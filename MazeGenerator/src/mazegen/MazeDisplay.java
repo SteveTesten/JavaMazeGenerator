@@ -23,14 +23,12 @@ public class MazeDisplay extends JPanel
 		display_frame.setSize(window_height,window_width);
 		display_frame.setLocationRelativeTo(null);
 		
-		//JPanel maze_panel = new JPanel();
+		display_frame.add(new MazePanel());
 		
-		//display_frame.add(maze_panel);
 		
 		display_frame.setVisible(true);
 		
 		
 		
 	}
-
 }
