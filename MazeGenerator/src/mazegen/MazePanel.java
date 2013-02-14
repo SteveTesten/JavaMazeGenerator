@@ -12,16 +12,61 @@ import javax.swing.JPanel;
 
 public class MazePanel extends JPanel
 {
-	    public void paintComponent(Graphics g)
-	    {
-	        super.paintComponent(g);       
+	private int maze_rows, maze_cols, cell_size;
+	private Maze maze;
+	private int cell_loc_x,cell_loc_y;
+	private int tl_corner_x,tr_corner_x,bl_corner_x,br_corner_x;
+	private int tl_corner_y,tr_corner_y,bl_corner_y,br_corner_y;
+	
+	public MazePanel(Maze maze)
+	{
+		this.maze = maze;
+		maze_rows = maze.getRows();
+		maze_cols = maze.getColumns();
+		cell_size = 20; //link to maze display
+	}
 
-	        Graphics2D g2d = (Graphics2D) g;
-	        g2d.setPaint(Color.black);
-	        g2d.setStroke(new BasicStroke(5));
-	        g2d.draw(new Line2D.Double(50,50,50,150 ));
-	        g2d.draw(new Line2D.Double(50,50,150,50 ));
-	        g2d.draw(new Line2D.Double(150,50,150,150 ));
-	        g2d.draw(new Line2D.Double(50,150,150,150 ));
-	    }
+	public void paintComponent(Graphics g)
+	{
+		super.paintComponent(g); 
+		
+		for (int row = 1; row<=maze_rows; row++)
+		{
+			for (int col = 1; col<=maze_cols; col++)
+			{
+				cell_loc_x = (cell_size / 2) + cell_size * (col - 1);
+				cell_loc_y = (cell_size / 2) + cell_size * (row - 1);
+				
+				tl_corner_x = cell_loc_x - (cell_size / 2);
+				tl_corner_y = cell_loc_y - (cell_size / 2);
+				
+				tr_corner_x = cell_loc_x + (cell_size / 2);
+				tr_corner_y = cell_loc_y - (cell_size / 2);
+				
+				bl_corner_x = cell_loc_x + (cell_size / 2);
+				bl_corner_y = cell_loc_y - (cell_size / 2);
+				
+				br_corner_x = cell_loc_x + (cell_size / 2);
+				br_corner_y = cell_loc_y + (cell_size / 2);
+				
+				Graphics2D g2d = (Graphics2D) g;
+				g2d.setPaint(Color.black);
+				g2d.setStroke(new BasicStroke(10));
+				g2d.draw(new Line2D.Double(tl_corner_x,tl_corner_y,tr_corner_x,tr_corner_y));
+				g2d.draw(new Line2D.Double(tl_corner_x,tl_corner_y,bl_corner_x,bl_corner_y));
+				g2d.draw(new Line2D.Double(br_corner_x,br_corner_y,tr_corner_x,tr_corner_y));
+				g2d.draw(new Line2D.Double(br_corner_x,br_corner_y,bl_corner_x,bl_corner_y));
+			}
+		}
+	}
 }
+
+/*
+Graphics2D g2d = (Graphics2D) g;
+g2d.setPaint(Color.black);
+g2d.setStroke(new BasicStroke(5));
+g2d.draw(new Line2D.Double(50,50,50,150 ));
+g2d.draw(new Line2D.Double(50,50,150,50 ));
+g2d.draw(new Line2D.Double(150,50,150,150 ));
+g2d.draw(new Line2D.Double(50,150,150,150 ));
+*/

@@ -6,15 +6,16 @@ import javax.swing.JPanel;
 public class MazeDisplay extends JPanel
 {
 	
-	private int maze_rows, maze_cols;
+	private static final long serialVersionUID = 1L;
+	private int maze_rows, maze_cols, cell_size;
 	
 	public MazeDisplay(Maze maze)
 	{
-		
-		int window_height = 600;
-		int window_width = 600;
 		maze_rows = maze.getRows();
 		maze_cols = maze.getColumns();
+		cell_size = 20;  //needs to be adaptive
+		int window_height = maze_rows*cell_size;
+		int window_width = maze_cols*cell_size;
 		
 		JFrame display_frame = new JFrame();
 		
@@ -23,12 +24,14 @@ public class MazeDisplay extends JPanel
 		display_frame.setSize(window_height,window_width);
 		display_frame.setLocationRelativeTo(null);
 		
-		display_frame.add(new MazePanel());
+		display_frame.add(new MazePanel(maze));
 		
 		
 		display_frame.setVisible(true);
-		
-		
-		
+	}
+	
+	public int getCellSize()
+	{
+		return cell_size;
 	}
 }

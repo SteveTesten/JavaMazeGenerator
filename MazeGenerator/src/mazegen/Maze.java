@@ -18,7 +18,6 @@ public class Maze
 		grid.addBorder();
 		
 		createMaze();
-		
 	}
 	
 	public int getRows()
