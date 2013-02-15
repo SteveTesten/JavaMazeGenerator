@@ -1,7 +1,5 @@
 package mazegen;
 
-import java.awt.Dimension;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -28,7 +26,7 @@ public class MazeDisplay extends JPanel
 		display_frame.setResizable(false);
 		
 		display_frame.add(new MazePanel(maze));
-		//display_frame.setPreferredSize(new Dimension(window_width,window_height));
+		display_frame.add(new SolutionPanel(maze));
 		
 		display_frame.setVisible(true);
 	}

@@ -2,12 +2,10 @@ package mazegen;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Line2D;
 
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 public class MazePanel extends JPanel
@@ -49,28 +47,19 @@ public class MazePanel extends JPanel
 				br_corner_x = cell_loc_x + (cell_size / 2);
 				br_corner_y = cell_loc_y + (cell_size / 2);
 				
-				Graphics2D g2d = (Graphics2D) g;
-				g2d.setPaint(Color.black);
-				g2d.setStroke(new BasicStroke(5));
+				Graphics2D wall_line = (Graphics2D) g;
+
+				wall_line.setPaint(Color.black);
+				wall_line.setStroke(new BasicStroke(5));
 				if (maze.getGrid().getCell(row, col).getWall(Cell.TOP) != Cell.WallState.OPEN)
-					g2d.draw(new Line2D.Double(tl_corner_x,tl_corner_y,tr_corner_x,tr_corner_y));
+					wall_line.draw(new Line2D.Double(tl_corner_x,tl_corner_y,tr_corner_x,tr_corner_y));
 				if (maze.getGrid().getCell(row, col).getWall(Cell.LEFT) != Cell.WallState.OPEN)
-					g2d.draw(new Line2D.Double(tl_corner_x,tl_corner_y,bl_corner_x,bl_corner_y));
+					wall_line.draw(new Line2D.Double(tl_corner_x,tl_corner_y,bl_corner_x,bl_corner_y));
 				if (maze.getGrid().getCell(row, col).getWall(Cell.RIGHT) != Cell.WallState.OPEN)
-					g2d.draw(new Line2D.Double(br_corner_x,br_corner_y,tr_corner_x,tr_corner_y));
+					wall_line.draw(new Line2D.Double(br_corner_x,br_corner_y,tr_corner_x,tr_corner_y));
 				if (maze.getGrid().getCell(row, col).getWall(Cell.BOTTOM) != Cell.WallState.OPEN)
-					g2d.draw(new Line2D.Double(br_corner_x,br_corner_y,bl_corner_x,bl_corner_y));
+					wall_line.draw(new Line2D.Double(br_corner_x,br_corner_y,bl_corner_x,bl_corner_y));
 			}
 		}
 	}
 }
-
-/*
-Graphics2D g2d = (Graphics2D) g;
-g2d.setPaint(Color.black);
-g2d.setStroke(new BasicStroke(5));
-g2d.draw(new Line2D.Double(50,50,50,150 ));
-g2d.draw(new Line2D.Double(50,50,150,50 ));
-g2d.draw(new Line2D.Double(150,50,150,150 ));
-g2d.draw(new Line2D.Double(50,150,150,150 ));
-*/
