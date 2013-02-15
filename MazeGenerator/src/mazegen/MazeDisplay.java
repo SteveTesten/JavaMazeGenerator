@@ -1,5 +1,7 @@
 package mazegen;
 
+import java.awt.Dimension;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -20,12 +22,13 @@ public class MazeDisplay extends JPanel
 		JFrame display_frame = new JFrame();
 		
 		display_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		display_frame.setTitle("Random Maze Generator!");
-		display_frame.setSize(window_height,window_width);
+		display_frame.setTitle("Random " + maze_rows + "x" + maze_cols + " maze!");
+		display_frame.setSize(window_width+1,window_height+23);
 		display_frame.setLocationRelativeTo(null);
+		display_frame.setResizable(false);
 		
 		display_frame.add(new MazePanel(maze));
-		
+		//display_frame.setPreferredSize(new Dimension(window_width,window_height));
 		
 		display_frame.setVisible(true);
 	}

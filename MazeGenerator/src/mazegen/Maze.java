@@ -105,6 +105,11 @@ public class Maze
 		
 		return closed_neighbors;
 	}
+	
+	public Grid getGrid()
+	{
+		return grid;
+	}
 
 	public void solver()
 	{
