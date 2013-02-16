@@ -3,4 +3,4 @@ MazeRace
 
 Maze Race - A game for Android.
 
-Now with more cheat commits.
+Now with more cheat commits.^2
